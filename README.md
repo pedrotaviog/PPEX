@@ -22,6 +22,12 @@ A PCB do projeto (disponível no esquemático) integra os seguintes componentes:
 *   **Sensor de Ambiente:** HC-SR04 (Ultrassónico)
 *   **Conversão DC-DC:** MT3608 (lógica) e HW-045 / CN6009 (potência do chute)
 
+Abaixo está o diagrama elétrico do robô, mostrando o isolamento entre o circuito lógico e a descarga do solenóide:
+
+![Esquemático do Robô PPEX](img/esquematico.png)
+
+[📄 Clique aqui para visualizar/baixar o Esquemático em PDF](img/esquematico.pdf)
+
 ## 💻 Estrutura de Software
 
 O código foi desenvolvido de forma nativa e enxuta utilizando o *framework* oficial da Espressif, abandonando a camada do Arduino para extrair o máximo de desempenho do silício.
