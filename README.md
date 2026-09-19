@@ -1,4 +1,4 @@
-# 🤖 PPEX - Robô de Futebol Autônomo (ESP32-S3)
+# 🤖 PPEX (GRUPO 1) - Robô de Futebol Autônomo (ESP32-S3)
 
 [![ESP-IDF](https://img.shields.io/badge/ESP--IDF-v5.5-red.svg)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/)
 [![C](https://img.shields.io/badge/Language-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
@@ -41,3 +41,17 @@ O código foi desenvolvido de forma nativa e enxuta utilizando o *framework* ofi
 ```bash
 idf.py build
 idf.py -p COMx flash monitor
+```
+---
+
+### Autores:
+
+- Ana Liz Rodrigues Ferreira 
+- Arthur Rocha Miranda
+- ⁠Jeferson Rodrigues de Souza
+- ⁠João Pedro Coelho Costa
+- ⁠Kaynã Teixeira Braga do Prado
+- ⁠Mohamad Lotfi Natour 
+- Pedro Otávio Gaspar de Freitas
+- ⁠Pedro Rabelo
+- ⁠Samuel Carvalho Assunção Horta
