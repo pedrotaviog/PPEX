@@ -33,5 +33,5 @@
     "--compile-commands-dir=c:\\Users\\pedro\\PPEX\\build"
   ],
   "idf.flashType": "UART",
-  "idf.portWin": "COM4"
+  "idf.port": "COM4"
 }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Controle Bot-afogo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h2>CONTROLE BOT-AFOGO</h2>
+        <button id="btn-connect" class="btn-connect">Conectar Bluetooth</button>
+        <div id="status">DESCONECTADO</div>
+    </header>
+
+    <!-- O contêiner principal que muda de linha para coluna dependendo da tela -->
+    <main class="control-layout">
+        
+        <!-- Bloco 1: Joystick (Esquerda no landscape) -->
+        <div class="joystick-wrapper">
+            <div class="joystick-container" id="joystick-base">
+                <div class="joystick-stick" id="joystick-stick"></div>
+            </div>
+        </div>
+
+    <!-- Bloco 2: Telemetria (Centro no landscape) -->
+    <div class="telemetry-wrapper">
+        <div class="display-box">
+            <span class="label">RADAR (DISTÂNCIA)</span>
+            <div class="value"><span id="dist-val">--</span> cm</div>
+        </div>
+        
+        <div class="display-box">
+            <span class="label">VELOCIDADE REAL</span>
+            <div class="value"><span id="speed-val">0</span> cm/s</div>
+        </div>
+
+        <div class="display-box">
+            <span class="label">BATERIA (CARGA)</span>
+            <div class="value"><span id="battery-val">--</span> %</div>
+        </div>
+    </div>
+
+        <!-- Bloco 3: Ações (Direita no landscape) -->
+        <div class="action-wrapper">
+            <button class="btn-chute" id="btn-chute">CHUTAR</button>
+        </div>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
