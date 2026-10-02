@@ -236,8 +236,16 @@ void task_controle_pi(void *pvP) {
 
         // Telemetria via Bluetooth
         if(ble_conn_handle != BLE_HS_CONN_HANDLE_NONE && radar_ativo) {
-            float vel_media = (v_esq + v_dir) / 2.0; 
-            snprintf(tx_buffer, sizeof(tx_buffer), "%d;%.2f;%d", dist_radar_cm, vel_media, bat_pct);
+            static float vel_media_filtrada = 0.0;
+            float vel_media_instantanea = (v_esq + v_dir) / 2.0; 
+            
+            // Filtro Passa-Baixa encoders para estabilizar a velocidade média
+            vel_media_filtrada = (vel_media_filtrada * 0.85) + (vel_media_instantanea * 0.15);
+
+            // Zera completamente o painel se os motores estiverem parados
+            if (alvo_atual_esq == 0.0 && alvo_atual_dir == 0.0) vel_media_filtrada = 0.0;
+
+            snprintf(tx_buffer, sizeof(tx_buffer), "%d;%.2f;%d", dist_radar_cm, vel_media_filtrada, bat_pct);
             struct os_mbuf *tx_om = ble_hs_mbuf_from_flat(tx_buffer, strlen(tx_buffer));
             if (tx_om && ble_gatts_notify_custom(ble_conn_handle, char_tx_handle, tx_om) != 0) {
                 os_mbuf_free_chain(tx_om); 
