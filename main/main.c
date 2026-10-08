@@ -46,8 +46,8 @@
 #define KI 0.3
 
 // Alvos de velocidade
-#define ALVO_CRUZEIRO_CMS 50.0
-#define ALVO_GIRO_CMS     30.0
+#define ALVO_CRUZEIRO_CMS 30.0
+#define ALVO_GIRO_CMS     15.0
 
 // Ajuste do ADC
 #define FATOR_CORRECAO_BATERIA 1.08
@@ -267,6 +267,10 @@ static int ble_rx_cb(uint16_t conn, uint16_t attr, struct ble_gatt_access_ctxt *
             case 'S': alvo_esq = -ALVO_CRUZEIRO_CMS; alvo_dir = -ALVO_CRUZEIRO_CMS; break;
             case 'A': alvo_esq = -ALVO_GIRO_CMS;     alvo_dir = ALVO_GIRO_CMS; break;
             case 'D': alvo_esq = ALVO_GIRO_CMS;      alvo_dir = -ALVO_GIRO_CMS; break;
+            case 'Q': alvo_esq = ALVO_CRUZEIRO_CMS / 3.0; alvo_dir = ALVO_CRUZEIRO_CMS; break;
+            case 'E': alvo_esq = ALVO_CRUZEIRO_CMS; alvo_dir = ALVO_CRUZEIRO_CMS / 3.0; break;
+            case 'Z': alvo_esq = -ALVO_CRUZEIRO_CMS / 3.0; alvo_dir = -ALVO_CRUZEIRO_CMS; break;
+            case 'C': alvo_esq = -ALVO_CRUZEIRO_CMS; alvo_dir = -ALVO_CRUZEIRO_CMS / 3.0; break;
             case 'X': alvo_esq = 0.0;               alvo_dir = 0.0; break; 
             case 'R': xTaskNotifyGive(task_chute_handle); break; 
         }

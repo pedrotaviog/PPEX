@@ -52,7 +52,12 @@ async def main():
                 # Prioridade 1: Chute
                 if r:
                     cmd = 'R'
-                # Prioridade 2: Movimentos 
+                # Prioridade 2: Movimentos diagonais
+                elif w and a: cmd = 'Q'
+                elif w and d: cmd = 'E'
+                elif s and a: cmd = 'Z'
+                elif s and d: cmd = 'C'
+                # Prioridade 3: Movimentos básicos
                 elif w: cmd = 'W'
                 elif s: cmd = 'S'
                 elif a: cmd = 'A'
